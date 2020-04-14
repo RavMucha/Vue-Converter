@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="LOGO.PNG" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Vue Converter</title>
+</head>
+
+<body>
+    <span class="text-center">Vue Converter</span>
+    <div id="app">
+        <div class="convert">
+            <div class="input-cont">
+                <p>
+                    <label>Celsius:</label>
+                    <input type="number" v-model="cels">
+                </p>
+                <p class="res">{{ Math.round((cels*1.8+32) * 10) / 10 }}&#176;F</p>
+            </div>
+            <div class="input-cont">
+                <p>
+                    <label>Fahrenheit:</label>
+                    <input type="number" v-model="fahr">
+                </p>
+                <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;C</p>
+            </div>
+        </div>
+        <div class="convert">
+            <div class="input-cont">
+                <p>
+                    <label>Kilometers:</label>
+                    <input type="number" v-model="km">
+                </p>
+                <p class="res">{{ Math.round(( km/1.609344 ) * 10) / 10 }} mi</p>
+            </div>
+            <div class="input-cont">
+                <p>
+                    <label>Miles:</label>
+                    <input type="number" v-model="mile">
+                </p>
+                <p class="res">{{ Math.round(( mile*1.609344 ) * 10) / 10 }} km</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                cels: 0,
+                fahr: 0,
+                mile: 0,
+                km: 0
+            }
+        })
+    </script>
+    <style>
+        .res,
+        .input-cont label {
+            font-family: Georgia, serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            color: #DEDEDE;
+            font-weight: bold;
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: none;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        body {
+            text-align: center;
+            min-width: 500px;
+            background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto;
+            height: 100vh;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+        }
+        
+        .text-center {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            color: rgb(0, 100, 67);
+            font-weight: 500;
+            text-decoration: underline overline solid rgb(0, 100, 67);
+            font-variant: small-caps;
+            margin: 90px 0 90px 0;
+            display: block;
+            text-align: center;
+        }
+        
+        .convert {
+            text-align:left;
+            display: inline-block;
+            border-radius: 30px;
+            min-width: 380px;
+            box-shadow: 0px 0px 25px black;
+            background-color: rgba(5, 5, 5, 0.9);
+            padding: 50px 70px;
+            margin: 20px;
+        }
+        
+        .input-cont {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .input-cont input {
+            border: 0;
+            border-bottom: 2px solid #dde;
+            background: transparent;
+            width: 100%;
+            padding: 8px 0 5px 0;
+            font-size: 16px;
+            color: #fff;
+        }
+        
+        .input-cont input:focus {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid rgb(0, 100, 67);
+        }
+    </style>
+</body>
+
+</html>
