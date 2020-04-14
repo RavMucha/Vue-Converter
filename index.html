@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Rafał Mucha">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="LOGO.PNG" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -45,6 +46,7 @@
             </div>
         </div>
     </div>
+    <footer>Created by Rafał Mucha as a Vue.js practice project in 2020.</footer>
 
     <script>
         let vm = new Vue({
@@ -129,6 +131,15 @@
             border: none;
             outline: none;
             border-bottom: 2px solid rgb(0, 100, 67);
+        }
+        footer {
+            font-size: 0.7rem;
+            color: #dde;
+            text-shadow: 0px 0px 6px black;
+            min-width: 300px;
+            position:fixed;
+            bottom: 5px;
+            right: 5px;
         }
     </style>
 </body>
