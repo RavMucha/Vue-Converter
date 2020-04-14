@@ -35,14 +35,14 @@
                     <label>Kilometers:</label>
                     <input type="number" v-model="km">
                 </p>
-                <p class="res">{{ Math.round(( km/1.609344 ) * 10) / 10 }} mi</p>
+                <p class="res">{{ ( km/1.609344 ).toFixed(2) }} mi</p>
             </div>
             <div class="input-cont">
                 <p>
                     <label>Miles:</label>
                     <input type="number" v-model="mile">
                 </p>
-                <p class="res">{{ Math.round(( mile*1.609344 ) * 10) / 10 }} km</p>
+                <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
             </div>
         </div>
     </div>
