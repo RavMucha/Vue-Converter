@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Rafał Mucha">
@@ -11,7 +10,7 @@
 </head>
 
 <body>
-    <span class="text-center">Vue Converter</span>
+    <h1 class="header">Vue Converter</h1>
     <div id="app">
         <div class="convert">
             <div class="input-cont">
@@ -60,6 +59,36 @@
         })
     </script>
     <style>
+    body {
+            text-align: center;
+            min-width: 500px;
+            background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto;
+            height: 100vh;
+            font-family: Georgia, serif;
+            letter-spacing: 2px;
+        }
+        .convert {
+            text-align:left;
+            display: inline-block;
+            border-radius: 30px;
+            box-shadow: 0px 0px 25px rgb(0, 19, 27);
+            background-color: rgba(0, 33, 48, 0.8);
+            padding: 20px 30px;
+            margin: 15px;
+        }
+        .header {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            color: rgb(0, 100, 67);
+            font-weight: 500;
+            text-decoration: underline overline solid rgb(0, 100, 67);
+            font-variant: small-caps;
+        }
         .res,
         .input-cont label {
             font-family: Georgia, serif;
@@ -74,44 +103,11 @@
             margin-top: 10px;
             opacity: 0.9;
         }
-        
-        body {
-            text-align: center;
-            min-width: 500px;
-            background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: auto;
-            height: 100vh;
-            font-family: Georgia, serif;
-            letter-spacing: 2px;
+
+        .convert:hover {
+    transform: translateY(-3px) scale(1.1);
         }
-        
-        .text-center {
-            font-family: Georgia, serif;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            word-spacing: 2px;
-            color: rgb(0, 100, 67);
-            font-weight: 500;
-            text-decoration: underline overline solid rgb(0, 100, 67);
-            font-variant: small-caps;
-            margin: 90px 0 90px 0;
-            display: block;
-            text-align: center;
-        }
-        
-        .convert {
-            text-align:left;
-            display: inline-block;
-            border-radius: 30px;
-            min-width: 380px;
-            box-shadow: 0px 0px 25px rgb(0, 19, 27);
-            background-color: rgba(0, 33, 48, 0.8);
-            padding: 50px 70px;
-            margin: 20px;
-        }
-        
+
         .input-cont {
             position: relative;
             margin-bottom: 25px;
@@ -146,5 +142,4 @@
         }
     </style>
 </body>
-
 </html>
