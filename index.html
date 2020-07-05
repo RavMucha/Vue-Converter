@@ -44,6 +44,38 @@
                 <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
             </div>
         </div>
+        <div class="convert">
+            <div class="input-cont">
+                <p>
+                    <label>Kilograms:</label>
+                    <input type="number" v-model="kg">
+                </p>
+                <p class="res">{{ ( kg/0.45359237 ).toFixed(2) }} lbs</p>
+            </div>
+            <div class="input-cont">
+                <p>
+                    <label>Pounds:</label>
+                    <input type="number" v-model="lbs">
+                </p>
+                <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
+            </div>
+        </div>
+        <div class="convert">
+            <div class="input-cont">
+                <p>
+                    <label>Meters:</label>
+                    <input type="number" v-model="m">
+                </p>
+                <p class="res">{{ ( m/0.3048 ).toFixed(2) }} ft</p>
+            </div>
+            <div class="input-cont">
+                <p>
+                    <label>Feet:</label>
+                    <input type="number" v-model="ft">
+                </p>
+                <p class="res">{{ ( ft*0.3048 ).toFixed(2) }} m</p>
+            </div>
+        </div>
     </div>
     <footer>Created by Rafał Mucha as a Vue.js practice project in 2020.</footer>
 
@@ -54,27 +86,39 @@
                 cels: 0,
                 fahr: 0,
                 mile: 0,
-                km: 0
+                km: 0,
+                kg: 0,
+                lbs: 0,
+                m: 0,
+                ft: 0
             }
         })
     </script>
     <style>
     body {
             text-align: center;
-            min-width: 500px;
+            min-width: 300px;
             background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
             background-position: center;
             background-repeat: no-repeat;
             background-size: auto;
-            height: 100vh;
+            height: 100%;
             font-family: Georgia, serif;
             letter-spacing: 2px;
         }
+        #app {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 15px;
+            padding: 0 50px 0 50px;
+            box-sizing: border-box;
+        }
         .convert {
+            box-sizing: border-box;
             text-align:left;
-            display: inline-block;
+            display: inline-grid;
             border-radius: 30px;
-            box-shadow: 0px 0px 25px rgb(0, 19, 27);
+            box-shadow: 1px 1px 4px rgb(0, 19, 27), 1px 1px 25px rgb(0, 19, 27);
             background-color: rgba(0, 33, 48, 0.8);
             padding: 20px 30px;
             margin: 15px;
@@ -156,6 +200,39 @@
             bottom: 5px;
             right: 5px;
         }
+        @media only screen and (max-width: 800px) {
+            #app {
+            grid-template-columns: auto;
+        }
+}
+        @media only screen and (max-width: 600px) {
+            #app {
+            grid-gap: 1px;
+            padding: 0 10px 0 10px;
+        }
+            .header {
+            font-size: 2rem;
+            color: rgb(0, 148, 148);
+            text-decoration: underline overline solid rgb(0, 148, 148);
+        }
+}
+        @media only screen and (max-width: 520px) {
+            #app {
+            grid-gap: 1px;
+            padding: 0 5px 0 5px;
+        }
+        .convert {
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            width: 80vw;
+        }
+        .header {
+            display: inline;
+            text-align: left!important;
+        }
+}
+
     </style>
 </body>
 </html>
