@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-    <footer>Created by Rafał Mucha as a Vue.js practice project in 2020.</footer>
+    <footer>Created by Rafał Mucha as a Vue.js practice project in 2020. <a id="Link" href="https://rafal-mucha.online/" target="_blank">Contact me</a>.</footer>
 
     <script>
         let vm = new Vue({
@@ -189,16 +189,25 @@
             border-bottom: 2px solid rgb(0, 100, 67);
         }
         footer {
-            font-size: 0.7rem;
+            font-size: 0.5rem;
             color: #dde;
             text-shadow: 0px 0px 6px rgb(0, 19, 27);
             background-color: rgba(0, 33, 48, 0.9);
-            padding: 4px;
-            border-radius: 10px;
-            min-width: 300px;
+            padding: 2px;
+            border-radius: 10px 10px 0 0;
             position:fixed;
-            bottom: 5px;
-            right: 5px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        #Link {
+            font-weight: 600;
+            color: rgb(140, 230, 221);
+            text-decoration: none;
+        }
+        #Link:hover {
+            color: rgb(56, 189, 175);
+            opacity: 0.5;
         }
         @media only screen and (max-width: 800px) {
             #app {
