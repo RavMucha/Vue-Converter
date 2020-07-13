@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Rafał Mucha">
@@ -10,12 +11,19 @@
 </head>
 
 <body>
+    <header id="navi">
+        <ul>
+            <li><a href="#c2f">celc &#8635; fahr</a></li>
+            <li><a href="#km2m">km &#8635; mi</a></li>
+            <li><a href="#kg2p">kg &#8635; lbs</a></li>
+            <li><a href="#m2f">m &#8635; ft</a></li>
+        </ul>
+    </header>
     <h1 class="header">Vue Converter</h1>
     <span class="broken-pxl"></span>
     <span class="broken-pxl2"></span>
-    <span class="broken-pxl3"></span>
     <div id="app">
-        <div class="convert">
+        <div class="convert" id="c2f">
             <div class="input-cont">
                 <p>
                     <label>Celsius:</label>
@@ -31,7 +39,7 @@
                 <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;C</p>
             </div>
         </div>
-        <div class="convert">
+        <div class="convert" id="km2m">
             <div class="input-cont">
                 <p>
                     <label>Kilometers:</label>
@@ -47,7 +55,7 @@
                 <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
             </div>
         </div>
-        <div class="convert">
+        <div class="convert" id="kg2p">
             <div class="input-cont">
                 <p>
                     <label>Kilograms:</label>
@@ -63,7 +71,7 @@
                 <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
             </div>
         </div>
-        <div class="convert">
+        <div class="convert" id="m2f">
             <div class="input-cont">
                 <p>
                     <label>Meters:</label>
@@ -80,7 +88,8 @@
             </div>
         </div>
     </div>
-    <footer>Created by Rafał Mucha as a Vue.js practice project in 2020. <a id="Link" href="https://rafal-mucha.online/" target="_blank">Contact me</a>.</footer>
+    <footer>Created by Rafał Mucha as a Vue.js practice project in 2020. <a id="Link" href="https://rafal-mucha.online/"
+            target="_blank">Contact me</a>.</footer>
 
     <script>
         let vm = new Vue({
@@ -97,8 +106,8 @@
             }
         })
     </script>
-    <style>
-    body {
+    <style scoped>
+        body {
             text-align: center;
             min-width: 300px;
             background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
@@ -109,6 +118,7 @@
             font-family: Georgia, serif;
             letter-spacing: 2px;
         }
+
         #app {
             display: grid;
             grid-template-columns: auto auto;
@@ -116,9 +126,10 @@
             padding: 0 50px 0 50px;
             box-sizing: border-box;
         }
+
         .convert {
             box-sizing: border-box;
-            text-align:left;
+            text-align: left;
             display: inline-grid;
             border-radius: 30px;
             box-shadow: 1px 1px 4px rgb(0, 19, 27), 1px 1px 25px rgb(0, 19, 27);
@@ -130,6 +141,7 @@
             transition-duration: 400ms;
             transition-delay: 5ms;
         }
+
         .header {
             font-family: Georgia, serif;
             font-size: 3rem;
@@ -143,12 +155,14 @@
             transition-duration: 1500ms;
             transition-delay: 5ms;
         }
+
         .header:hover {
             color: rgb(0, 148, 99);
             transition-property: color;
             transition-duration: 1500ms;
             transition-delay: 5ms;
         }
+
         .res,
         .input-cont label {
             font-family: Georgia, serif;
@@ -165,17 +179,17 @@
         }
 
         .convert:hover {
-    transform: translateY(-3px) scale(1.1);
-    transition-property: transform;
-    transition-duration: 250ms;
-    transition-delay: 5ms;
+            transform: translateY(-3px) scale(1.1);
+            transition-property: transform;
+            transition-duration: 250ms;
+            transition-delay: 5ms;
         }
 
         .input-cont {
             position: relative;
             margin-bottom: 25px;
         }
-        
+
         .input-cont input {
             border: 0;
             border-bottom: 2px solid #dde;
@@ -185,12 +199,13 @@
             font-size: 16px;
             color: #fff;
         }
-        
+
         .input-cont input:focus {
             border: none;
             outline: none;
             border-bottom: 2px solid rgb(0, 100, 67);
         }
+
         footer {
             font-size: 0.5rem;
             color: #dde;
@@ -198,66 +213,100 @@
             background-color: rgba(0, 33, 48, 0.9);
             padding: 2px;
             border-radius: 10px 10px 0 0;
-            position:fixed;
+            position: fixed;
             bottom: 0;
             right: 0;
             left: 0;
         }
-        #Link {
+
+        #navi {
+            font-size: 0.6rem;
+            font-variant: small-caps;
+            color: #dde;
+            font-weight: 600;
+            text-shadow: 0px 0px 6px rgb(0, 19, 27);
+            background-color: rgba(0, 33, 48, 0.9);
+            padding: 2px;
+            border-radius: 0 0 10px 10px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 9;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            padding-right: 10%;
+            width: auto;
+            margin-right: 0.5%;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        li:last-child {
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        a {
             font-weight: 600;
             color: rgb(140, 230, 221);
             text-decoration: none;
         }
-        #Link:hover {
+
+        a:hover {
             color: rgb(56, 189, 175);
             opacity: 0.5;
         }
+
         @media only screen and (max-width: 800px) {
             #app {
-            grid-template-columns: auto;
+                grid-template-columns: auto;
+            }
         }
-}
+
         @media only screen and (max-width: 600px) {
             #app {
-            grid-gap: 1px;
-            padding: 0 10px 0 10px;
-        }
+                grid-gap: 1px;
+                padding: 0 10px 0 10px;
+            }
+
             .header {
-            font-size: 2rem;
-            color: rgb(0, 148, 148);
-            text-decoration: underline overline solid rgb(0, 148, 148);
+                font-size: 2rem;
+                color: rgb(0, 148, 148);
+                text-decoration: underline overline solid rgb(0, 148, 148);
+            }
         }
-}
-.broken-pxl {
-  background-color: #00ff22;
-  width: 1px;
-  height: 1px;
-  position: fixed;
-  box-shadow: 0 0 2px #27ae60;
-  top: 106px;
-  left: 242px;
-  z-index: 3000;
-}
-.broken-pxl2 {
-  background-color: #00ff22;
-  width: 1px;
-  height: 1px;
-  position: fixed;
-  box-shadow: 0 0 2px #27ae60;
-  top: 120px;
-  left: 240px;
-  z-index: 3000;
-}
-.broken-pxl3 {
-  background-color: #00ff22;
-  width: 1px;
-  height: 1px;
-  position: fixed;
-  box-shadow: 0 0 2px #27ae60;
-  top: 150px;
-  left: 220px;
-  z-index: 3000;
-}
+
+        .broken-pxl {
+            background-color: #00ff22;
+            width: 1px;
+            height: 1px;
+            position: fixed;
+            box-shadow: 0 0 2px #27ae60;
+            top: 106px;
+            left: 242px;
+            z-index: 3000;
+        }
+
+        .broken-pxl2 {
+            background-color: #00ff22;
+            width: 1px;
+            height: 1px;
+            position: fixed;
+            box-shadow: 0 0 2px #27ae60;
+            top: 120px;
+            left: 240px;
+            z-index: 3000;
+        }
     </style>
 </body>
+
 </html>
