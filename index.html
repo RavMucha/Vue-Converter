@@ -1,516 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Rafał Mucha" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./img/LOGO.PNG" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <title>Vue Converter</title>
-  </head>
 
-  <body>
-    <h1 id="header" @mouseover.native="hover = true">Vue converter</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Rafał Mucha" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./img/LOGO.PNG" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" href="./Style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>Vue Converter</title>
+</head>
 
-    <div id="app">
-      <header id="navi">
-        <ul>
-          <li><a href="#c2f">celc &#8635; fahr</a></li>
-          <li><a href="#km2m">km &#8635; mi</a></li>
-          <li><a href="#kg2p">kg &#8635; lbs</a></li>
-          <li><a href="#m2f">m &#8635; ft</a></li>
-        </ul>
-      </header>
-      <span
-        v-on:click="seen2=!seen2; click()"
-        v-if="seen1"
-        id="broken-pxl"
-      ></span>
-      <span
-        v-on:click="seen3=!seen3; click()"
-        v-if="seen2"
-        id="broken-pxl2"
-      ></span>
-      <span
-        v-on:click="seen1=!seen1; click()"
-        v-if="seen3"
-        id="broken-pxl3"
-      ></span>
-      <div class="convert glow" id="c2f">
-        <div class="input-cont">
-          <p>
-            <label>celsius:</label>
-            <input type="number" v-model="cels" />
-          </p>
-          <p class="res">{{ Math.round((cels*1.8+32) * 10) / 10 }}&#176;F</p>
-        </div>
-        <div class="input-cont">
-          <p>
-            <label>fahrenheit:</label>
-            <input type="number" v-model="fahr" />
-          </p>
-          <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;C</p>
-        </div>
+<body>
+  <h1 id="header" @mouseover.native="hover = true">Vue converter</h1>
+
+  <div id="app">
+    <header id="navi">
+      <ul>
+        <li><a href="#c2f">celc &#8635; fahr</a></li>
+        <li><a href="#km2m">km &#8635; mi</a></li>
+        <li><a href="#kg2p">kg &#8635; lbs</a></li>
+        <li><a href="#m2f">m &#8635; ft</a></li>
+      </ul>
+    </header>
+    <span v-on:click="seen2=!seen2; click()" v-if="seen1" id="broken-pxl"></span>
+    <span v-on:click="seen3=!seen3; click()" v-if="seen2" id="broken-pxl2"></span>
+    <span v-on:click="seen1=!seen1; click()" v-if="seen3" id="broken-pxl3"></span>
+    <div class="convert glow" id="c2f">
+      <div class="input-cont">
+        <p>
+          <label>celsius:</label>
+          <input type="number" v-model="cels" />
+        </p>
+        <p class="res">{{ Math.round((cels*1.8+32) * 10) / 10 }}&#176;F</p>
       </div>
-      <div class="convert" id="km2m">
-        <div class="input-cont">
-          <p>
-            <label>kilometers:</label>
-            <input type="number" v-model="km" />
-          </p>
-          <p class="res">{{ ( km/1.609344 ).toFixed(2) }} mi</p>
-        </div>
-        <div class="input-cont">
-          <p>
-            <label>miles:</label>
-            <input type="number" v-model="mile" />
-          </p>
-          <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
-        </div>
+      <div class="input-cont">
+        <p>
+          <label>fahrenheit:</label>
+          <input type="number" v-model="fahr" />
+        </p>
+        <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;C</p>
       </div>
-      <div class="convert" id="kg2p">
-        <div class="input-cont">
-          <p>
-            <label>kilograms:</label>
-            <input type="number" v-model="kg" />
-          </p>
-          <p class="res">{{ ( kg/0.45359237 ).toFixed(2) }} lbs</p>
-        </div>
-        <div class="input-cont">
-          <p>
-            <label>pounds:</label>
-            <input type="number" v-model="lbs" />
-          </p>
-          <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
-        </div>
-      </div>
-      <div class="convert" id="m2f">
-        <div class="input-cont">
-          <p>
-            <label>meters:</label>
-            <input type="number" v-model="m" />
-          </p>
-          <p class="res">{{ ( m/0.3048 ).toFixed(2) }} ft</p>
-        </div>
-        <div class="input-cont">
-          <p>
-            <label>feet:</label>
-            <input type="number" v-model="ft" />
-          </p>
-          <p class="res">{{ ( ft*0.3048 ).toFixed(2) }} m</p>
-        </div>
-      </div>
-      <footer>
-        <label class="switch">
-          <input @change="thermal()" id="Thermal" type="checkbox" />
-          <span class="slider"></span>
-        </label>
-        <span v-on:click="click()"
-          >Created by Rafał Mucha as a Vue.js practice project in 2020.</span
-        >
-        <a id="Link" href="https://rafal-mucha.online/" target="_blank"
-          >Contact me</a
-        >.
-      </footer>
     </div>
+    <div class="convert" id="km2m">
+      <div class="input-cont">
+        <p>
+          <label>kilometers:</label>
+          <input type="number" v-model="km" />
+        </p>
+        <p class="res">{{ ( km/1.609344 ).toFixed(2) }} mi</p>
+      </div>
+      <div class="input-cont">
+        <p>
+          <label>miles:</label>
+          <input type="number" v-model="mile" />
+        </p>
+        <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
+      </div>
+    </div>
+    <div class="convert" id="kg2p">
+      <div class="input-cont">
+        <p>
+          <label>kilograms:</label>
+          <input type="number" v-model="kg" />
+        </p>
+        <p class="res">{{ ( kg/0.45359237 ).toFixed(2) }} lbs</p>
+      </div>
+      <div class="input-cont">
+        <p>
+          <label>pounds:</label>
+          <input type="number" v-model="lbs" />
+        </p>
+        <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
+      </div>
+    </div>
+    <div class="convert" id="m2f">
+      <div class="input-cont">
+        <p>
+          <label>meters:</label>
+          <input type="number" v-model="m" />
+        </p>
+        <p class="res">{{ ( m/0.3048 ).toFixed(2) }} ft</p>
+      </div>
+      <div class="input-cont">
+        <p>
+          <label>feet:</label>
+          <input type="number" v-model="ft" />
+        </p>
+        <p class="res">{{ ( ft*0.3048 ).toFixed(2) }} m</p>
+      </div>
+    </div>
+    <footer>
+      <label class="switch">
+        <input @change="thermal()" id="Thermal" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+      <span v-on:click="click()">Created by Rafał Mucha as a Vue.js practice project in 2020.</span>
+      <a id="Link" href="https://rafal-mucha.online/" target="_blank">Contact me</a>.
+    </footer>
+  </div>
+  <script src="./script.js"></script>
+</body>
 
-    <script>
-      let vm = new Vue({
-        el: "#app",
-        methods: {
-          click: function () {
-            let audioC = new Audio("./assets/Clicking.mp3");
-            audioC.play();
-            audioC.volume = 0.2;
-          },
-          thermal: function () {
-            let head = document.getElementById("header");
-            let audioT = new Audio("./assets/predator_vision.mp3");
-            if (document.getElementById("Thermal").checked === true) {
-              audioT.play();
-              audioT.volume = 0.5;
-              document.documentElement.style.animation =
-                "glow 1s ease-in-out 1 alternate";
-              setTimeout(function () {
-                document.body.style.backgroundImage =
-                  "url('./img/thermal-vision.jpg')";
-                head.classList.add("thermal");
-                document.documentElement.style.animation = "none";
-              }, 500);
-            } else {
-              audioT.play();
-              audioT.volume = 0.5;
-              audioT.playbackRate = 2;
-              document.documentElement.style.animation =
-                "glow 1s ease-in-out 1 alternate";
-              setTimeout(function () {
-                document.body.style.backgroundImage =
-                  "url('./img/foggy-forest.jpeg')";
-                head.classList.remove("thermal");
-                document.documentElement.style.animation = "none";
-              }, 500);
-            }
-          },
-        },
-        data: {
-          cels: 0,
-          fahr: 0,
-          mile: 0,
-          km: 0,
-          kg: 0,
-          lbs: 0,
-          m: 0,
-          ft: 0,
-          seen1: true,
-          seen2: true,
-          seen3: false,
-        },
-      });
-    </script>
-    <style scoped>
-      :root {
-        --gray-txt: #dde;
-        --alien-color: #acf0ff;
-        --semantic-bg: rgba(0, 33, 48, 0.9);
-        --focus-txt: rgb(87, 214, 231);
-        --head-txt: rgba(0, 163, 163, 0.555);
-      }
-
-      html {
-        scroll-behavior: smooth;
-        box-shadow: inset 0 0 5px var(--semantic-bg);
-      }
-
-      body {
-        text-align: center;
-        min-width: 300px;
-        background-image: url("./img/foggy-forest.jpeg");
-        opacity: 0.9;
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100%;
-        letter-spacing: 2px;
-      }
-
-      #app {
-        font-family: sans-serif;
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 15px;
-        padding: 0 50px 0 50px;
-        box-sizing: border-box;
-      }
-
-      #navi {
-        font-family: Helvetica, Georgia, serif;
-        font-size: 0.6rem;
-        letter-spacing: 3px;
-        font-variant: small-caps;
-        color: var(--gray-txt);
-        font-weight: 400;
-        text-shadow: 0px 0px 6px rgb(0, 19, 27);
-        background-color: var(--semantic-bg);
-        padding: 2px;
-        border-radius: 0 0 10px 10px;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        user-select: none;
-        z-index: 9;
-      }
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      li {
-        display: inline-block;
-        padding-right: 10%;
-        width: auto;
-        margin-right: 0.5%;
-        padding-left: 0;
-        margin-left: 0;
-      }
-
-      li:last-child {
-        margin-right: 0;
-        padding-right: 0;
-      }
-
-      a {
-        font-weight: 600;
-        color: var(--alien-color);
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: var(--focus-txt);
-        opacity: 0.6;
-      }
-
-      #broken-pxl {
-        background-color: #00ff22;
-        width: 1px;
-        height: 1px;
-        margin: 1px;
-        position: fixed;
-        box-shadow: 0 0 3px #27ae60;
-        top: 100px;
-        left: 60px;
-        z-index: 3000;
-        cursor: crosshair;
-      }
-
-      #broken-pxl2 {
-        background-color: #00ff22;
-        width: 1px;
-        height: 1px;
-        margin: 1px;
-        position: fixed;
-        box-shadow: 0 0 3px #27ae60;
-        top: 120px;
-        left: 80px;
-        z-index: 3000;
-        cursor: crosshair;
-      }
-
-      #broken-pxl3 {
-        background-color: #00ff22;
-        width: 1px;
-        height: 1px;
-        margin: 1spx;
-        position: fixed;
-        box-shadow: 0 0 3px #27ae60;
-        top: 10px;
-        left: 40px;
-        z-index: 3000;
-        cursor: crosshair;
-      }
-
-      #header {
-        font-family: Helvetica, Georgia, serif;
-        font-size: 2rem;
-        letter-spacing: 20px;
-        margin-top: 40px;
-        word-spacing: 2px;
-        color: rgb(0, 129, 129);
-        font-weight: 600;
-        text-decoration: underline overline solid rgb(0, 129, 129);
-        font-variant: small-caps;
-        user-select: none;
-        transition-property: color;
-        transition-duration: 1000ms;
-        transition-delay: 5ms;
-      }
-
-      #header:hover {
-        color: var(--head-txt);
-        text-decoration: underline overline solid var(--head-txt);
-        transition-property: color;
-        transition-duration: 1500ms;
-        transition-delay: 5ms;
-      }
-
-      .thermal {
-        color: #8a0303 !important;
-        cursor: url("./assets/Pred.cur"), crosshair;
-        text-shadow: 1px 1px 0 #f67e00, 1px 0 1px #f6f300;
-        text-decoration: none !important;
-        font-family: "Predator" !important;
-      }
-
-      .res,
-      .input-cont label {
-        font-size: 1rem;
-        letter-spacing: 3px;
-        color: var(--alien-color);
-        font-weight: 500;
-        font-style: normal;
-        font-variant: small-caps;
-        text-transform: none;
-        margin-top: 10px;
-      }
-
-      label {
-        user-select: none;
-      }
-
-      .convert {
-        box-sizing: border-box;
-        text-align: left;
-        display: inline-grid;
-        border-radius: 30px;
-        box-shadow: 1px 1px 4px rgb(0, 27, 14), 3px 3px 6px rgb(0, 27, 11);
-        background: rgba(0, 50, 73, 0.8);
-        padding: 20px 30px;
-        margin: 15px;
-        transform: translateY(0px) scale(1);
-        transition-property: transform;
-        transition-duration: 400ms;
-        transition-delay: 5ms;
-      }
-
-      .convert:hover {
-        background: rgba(0, 50, 73, 0.7);
-        transform: translateY(-3px) scale(1.1);
-        transition-property: transform;
-        transition-duration: 250ms;
-        transition-delay: 5ms;
-      }
-
-      .input-cont {
-        position: relative;
-        margin-bottom: 25px;
-      }
-
-      .input-cont input {
-        border: 0;
-        border-bottom: 2px solid var(--alien-color);
-        background: transparent;
-        width: 100%;
-        padding: 8px 0 5px 0;
-        font-size: 16px;
-        color: var(--alien-color);
-      }
-
-      .input-cont input:focus {
-        border: none;
-        outline: none;
-        color: var(--focus-txt);
-        text-shadow: 0 0 3px #0a343d, 0 0 1px rgb(255, 255, 255);
-        border-bottom: 2px solid var(--focus-txt);
-      }
-
-      footer {
-        font-size: 0.5rem;
-        color: var(--gray-txt);
-        text-shadow: 0px 0px 6px rgb(0, 19, 27);
-        background-color: var(--semantic-bg);
-        padding: 2px;
-        border-radius: 10px 10px 0 0;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        user-select: none;
-      }
-
-      .switch {
-        position: relative;
-        display: inline-block;
-        margin-right: 0.5%;
-        width: 11px;
-        height: 7px;
-      }
-
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 10px;
-        background-color: rgba(76, 111, 129, 0.89);
-        transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 7px;
-        width: 7px;
-        left: 0px;
-        bottom: 0px;
-        border-radius: 50%;
-        background-color: var(--gray-txt);
-        opacity: 0.8;
-        transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      input:checked + .slider {
-        background-color: var(--head-txt);
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px var(--head-txt);
-      }
-
-      input:checked + .slider:before {
-        transform: translateX(5px);
-      }
-
-      @media only screen and (max-width: 800px) {
-        #app {
-          grid-template-columns: auto;
-        }
-      }
-
-      @media only screen and (max-width: 600px) {
-        #app {
-          grid-gap: 2px;
-          padding: 0 10px 0 10px;
-        }
-
-        #header {
-          font-family: Predator, sans-serif;
-          font-size: 1.3rem;
-          font-weight: 200;
-          letter-spacing: 11px;
-          color: var(--semantic-bg);
-          text-decoration: none;
-        }
-
-        #header:hover {
-          color: #8a0303;
-          text-decoration: none;
-          transition-property: color;
-          transition-duration: 1500ms;
-          transition-delay: 5ms;
-        }
-      }
-
-      @media only screen and (max-width: 430px) {
-        li {
-          font-size: 0.5rem;
-          padding-right: 5%;
-          margin-right: 1%;
-        }
-      }
-
-      @font-face {
-        font-family: "Predator";
-        src: url("./assets/invisibl.ttf") format("truetype");
-      }
-
-      @keyframes glow {
-        0% {
-          box-shadow: inset 0 0 0 #fff;
-        }
-
-        50% {
-          box-shadow: inset 0 0 40px #fff, inset 0 0 100px #fff,
-            inset 0 0 150px var(--alien-color), inset 0 0 200px var(--focus-txt),
-            inset 0 0 250px var(--focus-txt), inset 0 0 300px var(--focus-txt),
-            inset 0 0 350px var(--alien-color);
-        }
-
-        100% {
-          box-shadow: inset 0 0 0 #fff;
-        }
-      }
-    </style>
-  </body>
 </html>
