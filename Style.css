@@ -3,7 +3,13 @@
   --alien-color: #acf0ff;
   --semantic-bg: rgba(0, 33, 48, 0.9);
   --focus-txt: rgb(87, 214, 231);
+  --slide-bg: rgba(76, 111, 129, 0.89);
   --head-txt: rgba(0, 163, 163, 0.555);
+  --alien-color-T: #ffea76;
+  --semantic-bg-T: rgba(51, 51, 51, 0.9);
+  --focus-txt-T: #f89021;
+  --head-txt-T: rgba(128, 4, 25, 1);
+  --blood: #8a0303;
 }
 
 html {
@@ -21,7 +27,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: var(--gray-txt);
+  background-color: #406583;
   height: 100%;
   letter-spacing: 2px;
 }
@@ -37,7 +43,7 @@ body {
 }
 
 #navi {
-  font-family: Helvetica, Georgia, serif;
+  font-family: Helvetica, sans-serif;
   font-size: 0.6rem;
   letter-spacing: 3px;
   font-variant: small-caps;
@@ -74,47 +80,34 @@ a:hover {
   opacity: 0.6;
 }
 
-#broken-pxl {
+.bpx {
   background-color: #00ff22;
   width: 1px;
   height: 1px;
   margin: 1px;
   position: fixed;
   box-shadow: 0 0 3px #27ae60;
-  top: 100px;
-  left: 60px;
   z-index: 3000;
   cursor: crosshair;
+}
+
+#broken-pxl {
+  top: 100px;
+  left: 60px;
 }
 
 #broken-pxl2 {
-  background-color: #00ff22;
-  width: 1px;
-  height: 1px;
-  margin: 1px;
-  position: fixed;
-  box-shadow: 0 0 3px #27ae60;
   top: 120px;
   left: 80px;
-  z-index: 3000;
-  cursor: crosshair;
 }
 
 #broken-pxl3 {
-  background-color: #00ff22;
-  width: 1px;
-  height: 1px;
-  margin: 1spx;
-  position: fixed;
-  box-shadow: 0 0 3px #27ae60;
   top: 10px;
   left: 40px;
-  z-index: 3000;
-  cursor: crosshair;
 }
 
 #header {
-  font-family: Helvetica, Georgia, serif;
+  font-family: Helvetica, sans-serif;
   font-size: 2rem;
   letter-spacing: 20px;
   margin-top: 40px;
@@ -138,14 +131,58 @@ a:hover {
 }
 
 .thermal {
-  color: #8a0303 !important;
-  text-shadow: 1px 1px 0 #f67e00, 1px 0 1px #f6f300;
+  color: var(--blood) !important;
+  text-shadow: 1px 1px 0 var(--alien-color-T), 1px 0 1px #f6f300;
   text-decoration: none !important;
-  font-family: "Predator" !important;
+  font-family: "Predator", Impact !important;
 }
 
-input, a {
-    cursor: url("./assets/Pred.cur"), crosshair;
+.thermalNav,
+.thermalConv .convert {
+  background-color: var(--semantic-bg-T) !important;
+}
+
+.thermalConv .convert:hover {
+  background-color: rgba(48, 48, 48, 0.9) !important;
+}
+
+.thermalNav a {
+  color: var(--alien-color-T) !important;
+  text-shadow: 1px 0px 0 var(--blood);
+  text-decoration: none !important;
+  font-family: "Predator", Impact !important;
+}
+
+.thermalConv label,
+.thermalConv p,
+.thermalConv input {
+  color: var(--alien-color-T) !important;
+  text-shadow: 1px 0px 0 var(--blood) !important;
+  text-decoration: none !important;
+  font-family: "Predator", Impact !important;
+}
+
+.thermalConv .input-cont input {
+  border-bottom: 2px solid var(--alien-color-T);
+  color: var(--focus-txt-T);
+}
+
+.thermalConv .input-cont input:focus {
+  color: var(--focus-txt-T) !important;
+  border-bottom: 2px solid var(--focus-txt-T);
+}
+
+.thermalNav input:checked + .slider {
+  background-color: var(--head-txt-T);
+}
+
+footer.thermalNav {
+  padding: 3px;
+}
+
+input,
+a {
+  cursor: url("./assets/Pred.cur"), crosshair;
 }
 
 .res,
@@ -182,6 +219,8 @@ label {
 .convert:hover {
   background: rgba(0, 50, 73, 0.7);
   transform: translateY(-3px) scale(1.1);
+  box-shadow: -1px 1px 3px rgba(39, 39, 39, 0.6),
+    -3px 5px 9px rgba(0, 27, 11, 0.6), 0 15px 15px rgba(0, 0, 0, 0.6);
   transition-property: transform;
   transition-duration: 250ms;
   transition-delay: 5ms;
@@ -247,7 +286,7 @@ footer {
   right: 0;
   bottom: 0;
   border-radius: 10px;
-  background-color: rgba(76, 111, 129, 0.89);
+  background-color: var(--slide-bg);
   transition: 0.4s;
   transition: 0.4s;
 }
@@ -304,7 +343,7 @@ input:checked + .slider:before {
   }
 
   #header {
-    font-family: Predator, sans-serif;
+    font-family: sans-serif;
     font-size: 1.2rem;
     font-weight: 200;
     letter-spacing: 10px;
@@ -313,7 +352,7 @@ input:checked + .slider:before {
   }
 
   #header:hover {
-    color: #8a0303;
+    color: var(--blood);
     text-decoration: none;
     transition-property: color;
     transition-duration: 1500ms;
@@ -321,6 +360,9 @@ input:checked + .slider:before {
   }
   ul {
     margin: 5px 40px;
+  }
+  footer {
+    padding: 5px;
   }
   .switch {
     margin-right: 2%;
@@ -359,13 +401,10 @@ input:checked + .slider:before {
   }
 
   50% {
-    box-shadow: inset 0 0 40px #fff, inset 0 0 100px #fff,
-      inset 0 0 150px var(--alien-color), inset 0 0 200px var(--focus-txt),
-      inset 0 0 250px var(--focus-txt), inset 0 0 300px var(--focus-txt),
-      inset 0 0 350px var(--alien-color), 0 0 40px #fff,  0 0 100px #fff,
-      0 0 150px var(--alien-color),  0 0 200px var(--focus-txt),
-      0 0 250px var(--focus-txt),  0 0 300px var(--focus-txt),
-      0 0 350px var(--alien-color);
+    box-shadow: inset 0 0 10px #fff, inset 0 0 30px var(--alien-color),
+      inset 0 0 40px var(--focus-txt), 0 0 10px #fff, 0 0 50px #fff,
+      0 0 100px var(--alien-color), 0 0 150px var(--focus-txt),
+      0 0 200px var(--focus-txt), 0 0 250px var(--alien-color);
   }
 
   100% {

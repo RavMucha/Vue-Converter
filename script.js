@@ -7,30 +7,47 @@ let vm = new Vue({
       audioC.volume = 0.2;
     },
     thermal: function () {
+      let app = document.getElementById("app");
       let head = document.getElementById("header");
+      let foot = document.getElementById("credit");
+      let nav = document.getElementById("navi");
+      let cont = document.getElementsByClassName("convert");
       let audioT = new Audio("./assets/predator_vision.mp3");
       if (document.getElementById("Thermal").checked === true) {
         audioT.play();
         audioT.volume = 0.5;
-        document.documentElement.style.animation =
-          "glow 1s ease-in-out 1 alternate";
+        for (el of cont) {
+          el.style.animation = "glow 1s ease-in-out 1 alternate";
+        }
         setTimeout(function () {
           document.body.style.backgroundImage =
             "url('./img/thermal-vision.jpg')";
-          head.classList.add("thermal");
-          document.documentElement.style.animation = "none";
+          head.classList.toggle("thermal");
+          nav.classList.toggle("thermalNav");
+          app.classList.toggle("thermalConv");
+          foot.classList.toggle("thermalNav");
+          for (el of cont) {
+            el.style.animation = "none";
+          }
         }, 500);
       } else {
         audioT.play();
         audioT.volume = 0.5;
         audioT.playbackRate = 2;
-        document.documentElement.style.animation =
-          "glow 1s ease-in-out 1 alternate";
+        for (el of cont) {
+          el.style.animation = "glow 1s ease-in-out 1 alternate";
+        }
         setTimeout(function () {
           document.body.style.backgroundImage =
             "url('./img/foggy-forest.jpeg')";
+          head.classList.toggle("thermal");
+          nav.classList.toggle("thermalNav");
+          app.classList.toggle("thermalConv");
+          foot.classList.toggle("thermalNav");
           head.classList.remove("thermal");
-          document.documentElement.style.animation = "none";
+          for (el of cont) {
+            el.style.animation = "none";
+          }
         }, 500);
       }
     },
