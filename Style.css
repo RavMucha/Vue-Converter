@@ -23,6 +23,7 @@ body {
   opacity: 0.9;
   padding: 0 50px 0 50px;
   background-image: url("./img/foggy-forest.jpeg");
+  /* background: linear-gradient(0deg, rgba(3,113,138,1) 1%, rgba(99,144,196,1) 49%, rgba(115,158,191,1) 66%, rgba(161,178,191,1) 95%); */
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
