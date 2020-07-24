@@ -11,14 +11,12 @@ let vm = new Vue({
       let head = document.getElementById("header");
       let foot = document.getElementById("credit");
       let nav = document.getElementById("navi");
-      let cont = document.getElementsByClassName("convert");
       let audioT = new Audio("./assets/predator_vision.mp3");
       if (document.getElementById("Thermal").checked === true) {
         audioT.play();
         audioT.volume = 0.5;
-        for (el of cont) {
-          el.style.animation = "glow 1s ease-in-out 1 alternate";
-        }
+        foot.style.animation = "glow .7s ease-in-out 1 alternate";
+        nav.style.animation = "glow .7s ease-in-out 1 alternate";
         setTimeout(function () {
           document.body.style.backgroundImage =
             "url('./img/thermal-vision.jpg')";
@@ -26,17 +24,15 @@ let vm = new Vue({
           nav.classList.toggle("thermalNav");
           app.classList.toggle("thermalConv");
           foot.classList.toggle("thermalNav");
-          for (el of cont) {
-            el.style.animation = "none";
-          }
+          foot.style.animation = "none";
+          nav.style.animation = "none";
         }, 500);
       } else {
         audioT.play();
         audioT.volume = 0.5;
         audioT.playbackRate = 2;
-        for (el of cont) {
-          el.style.animation = "glow 1s ease-in-out 1 alternate";
-        }
+        foot.style.animation = "glow .7s ease-in-out 1 alternate";
+        nav.style.animation = "glow .7s ease-in-out 1 alternate";
         setTimeout(function () {
           document.body.style.backgroundImage =
             "url('./img/foggy-forest.jpeg')";
@@ -45,9 +41,8 @@ let vm = new Vue({
           app.classList.toggle("thermalConv");
           foot.classList.toggle("thermalNav");
           head.classList.remove("thermal");
-          for (el of cont) {
-            el.style.animation = "none";
-          }
+          foot.style.animation = "none";
+          nav.style.animation = "none";
         }, 500);
       }
     },
