@@ -12,6 +12,16 @@
 </head>
 
 <body>
+  <div class="hidden">
+    <script type="text/javascript">
+      if (document.images) {
+        img1 = new Image();
+        img2 = new Image();
+        img1.src = "img/foggy-forest.jpeg";
+        img2.src = "img/thermal-vision.jpg";
+      }
+    </script>
+  </div>
   <h1 id="header" @mouseover.native="hover = true">Vue converter</h1>
 
   <div id="app">
