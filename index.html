@@ -1,115 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Rafał Mucha" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/LOGO.PNG" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" href="./style.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Vue Converter</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="apple-mobile-web-app-status-bar" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="Rafał Mucha" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./img/LOGO.PNG" type="image/x-icon" />
-  <link type="text/css" rel="stylesheet" href="./style.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <title>Vue Converter</title>
-</head>
+  <body>
+    <div class="hidden">
+      <script type="text/javascript">
+        if (document.images) {
+          img1 = new Image();
+          img2 = new Image();
+          img1.src = "img/foggy-forest.jpeg";
+          img2.src = "img/thermal-vision.jpg";
+        }
+      </script>
+    </div>
+    <h1 id="header" @mouseover.native="hover = true">Vue converter</h1>
 
-<body>
-  <div class="hidden">
-    <script type="text/javascript">
-      if (document.images) {
-        img1 = new Image();
-        img2 = new Image();
-        img1.src = "img/foggy-forest.jpeg";
-        img2.src = "img/thermal-vision.jpg";
-      }
-    </script>
-  </div>
-  <h1 id="header" @mouseover.native="hover = true">Vue converter</h1>
-
-  <div id="app">
-    <header id="navi">
-      <ul>
-        <li><a href="#c2f">celc &#8635; fahr</a></li>
-        <li><a href="#km2m">km &#8635; mi</a></li>
-        <li><a href="#kg2p">kg &#8635; lbs</a></li>
-        <li><a href="#m2f">m &#8635; ft</a></li>
-      </ul>
-    </header>
-    <span v-on:click="seen2=!seen2; click()" v-if="seen1" class="bpx" id="broken-pxl"></span>
-    <span v-on:click="seen3=!seen3; click()" v-if="seen2" class="bpx" id="broken-pxl2"></span>
-    <span v-on:click="seen1=!seen1; click()" v-if="seen3" class="bpx" id="broken-pxl3"></span>
-    <div class="convert" id="c2f">
-      <div class="input-cont">
-        <p>
-          <label>celsius:</label>
-          <input type="number" v-model="cels" />
-        </p>
-        <p class="res">{{ Math.round((cels*1.8+32) * 10) / 10 }}&#176;f</p>
+    <div id="app">
+      <header id="navi">
+        <ul>
+          <li><a href="#c2f">celc &#8635; fahr</a></li>
+          <li><a href="#km2m">km &#8635; mi</a></li>
+          <li><a href="#kg2p">kg &#8635; lbs</a></li>
+          <li><a href="#m2f">m &#8635; ft</a></li>
+        </ul>
+      </header>
+      <span
+        v-on:click="seen2=!seen2; click()"
+        v-if="seen1"
+        class="bpx"
+        id="broken-pxl"
+      ></span>
+      <span
+        v-on:click="seen3=!seen3; click()"
+        v-if="seen2"
+        class="bpx"
+        id="broken-pxl2"
+      ></span>
+      <span
+        v-on:click="seen1=!seen1; click()"
+        v-if="seen3"
+        class="bpx"
+        id="broken-pxl3"
+      ></span>
+      <div class="convert" id="c2f">
+        <div class="input-cont">
+          <p>
+            <label>celsius:</label>
+            <input type="number" v-model="cels" />
+          </p>
+          <p class="res">{{ Math.round((cels*1.8+32) * 10) / 10 }}&#176;f</p>
+        </div>
+        <div class="input-cont">
+          <p>
+            <label>fahrenheit:</label>
+            <input type="number" v-model="fahr" />
+          </p>
+          <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;c</p>
+        </div>
       </div>
-      <div class="input-cont">
-        <p>
-          <label>fahrenheit:</label>
-          <input type="number" v-model="fahr" />
-        </p>
-        <p class="res">{{ Math.round(((fahr-32)/1.8) * 10) / 10 }}&#176;c</p>
+      <div class="convert" id="km2m">
+        <div class="input-cont">
+          <p>
+            <label>kilometers:</label>
+            <input type="number" v-model="km" />
+          </p>
+          <p class="res">{{ ( km/1.609344 ).toFixed(2) }} mi</p>
+        </div>
+        <div class="input-cont">
+          <p>
+            <label>miles:</label>
+            <input type="number" v-model="mile" />
+          </p>
+          <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
+        </div>
       </div>
+      <div class="convert" id="kg2p">
+        <div class="input-cont">
+          <p>
+            <label>kilograms:</label>
+            <input type="number" v-model="kg" />
+          </p>
+          <p class="res">{{ ( kg/0.45359237 ).toFixed(2) }} lbs</p>
+        </div>
+        <div class="input-cont">
+          <p>
+            <label>pounds:</label>
+            <input type="number" v-model="lbs" />
+          </p>
+          <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
+        </div>
+      </div>
+      <div class="convert" id="m2f">
+        <div class="input-cont">
+          <p>
+            <label>meters:</label>
+            <input type="number" v-model="m" />
+          </p>
+          <p class="res">{{ ( m/0.3048 ).toFixed(2) }} ft</p>
+        </div>
+        <div class="input-cont">
+          <p>
+            <label>feet:</label>
+            <input type="number" v-model="ft" />
+          </p>
+          <p class="res">{{ ( ft*0.3048 ).toFixed(2) }} m</p>
+        </div>
+      </div>
+      <footer id="credit">
+        <label class="switch">
+          <input @change="thermal()" id="Thermal" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <span v-on:click="click()"
+          >Created by Rafał Mucha as a Vue.js practice project in 2020.</span
+        >
+        <a id="Link" href="https://rafalmucha.online/" target="_blank"
+          >Contact me</a
+        >.
+      </footer>
     </div>
-    <div class="convert" id="km2m">
-      <div class="input-cont">
-        <p>
-          <label>kilometers:</label>
-          <input type="number" v-model="km" />
-        </p>
-        <p class="res">{{ ( km/1.609344 ).toFixed(2) }} mi</p>
-      </div>
-      <div class="input-cont">
-        <p>
-          <label>miles:</label>
-          <input type="number" v-model="mile" />
-        </p>
-        <p class="res">{{ ( mile*1.609344 ).toFixed(2) }} km</p>
-      </div>
-    </div>
-    <div class="convert" id="kg2p">
-      <div class="input-cont">
-        <p>
-          <label>kilograms:</label>
-          <input type="number" v-model="kg" />
-        </p>
-        <p class="res">{{ ( kg/0.45359237 ).toFixed(2) }} lbs</p>
-      </div>
-      <div class="input-cont">
-        <p>
-          <label>pounds:</label>
-          <input type="number" v-model="lbs" />
-        </p>
-        <p class="res">{{ ( lbs*0.45359237 ).toFixed(2) }} kg</p>
-      </div>
-    </div>
-    <div class="convert" id="m2f">
-      <div class="input-cont">
-        <p>
-          <label>meters:</label>
-          <input type="number" v-model="m" />
-        </p>
-        <p class="res">{{ ( m/0.3048 ).toFixed(2) }} ft</p>
-      </div>
-      <div class="input-cont">
-        <p>
-          <label>feet:</label>
-          <input type="number" v-model="ft" />
-        </p>
-        <p class="res">{{ ( ft*0.3048 ).toFixed(2) }} m</p>
-      </div>
-    </div>
-    <footer id="credit">
-      <label class="switch">
-        <input @change="thermal()" id="Thermal" type="checkbox" />
-        <span class="slider"></span>
-      </label>
-      <span v-on:click="click()">Created by Rafał Mucha as a Vue.js practice project in 2020.</span>
-      <a id="Link" href="https://rafalmucha.online/" target="_blank">Contact me</a>.
-    </footer>
-  </div>
-  <script src="./code.min.js"></script>
-</body>
-
+    <script src="./code.min.js"></script>
+  </body>
 </html>
