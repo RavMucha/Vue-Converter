@@ -11,10 +11,8 @@ const assets = [
   "/assets/Pred.cur",
   "/assets/invisibl.ttf",
   "/assets/predator_vision.mp3",
-  "/img/android-chrome-48x48.png",
+  "/img/favicon-48x48.png",
   "/img/apple-touch-icon.png",
-  "/img/favicon-16x16.png",
-  "/img/favicon-32x32.png",
   "/img/favicon-150x150.png"
 ]
 
