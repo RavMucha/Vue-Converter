@@ -13,7 +13,8 @@ const assets = [
   "/assets/predator_vision.mp3",
   "/img/favicon-48x48.png",
   "/img/apple-touch-icon.png",
-  "/img/favicon-150x150.png"
+  "/img/favicon-144x144.png",
+  "/img/favicon-192x192.png"
 ]
 
 self.addEventListener("install", installEvent => {
