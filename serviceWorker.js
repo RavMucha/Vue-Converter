@@ -5,7 +5,7 @@ const assets = [
   "/Style.css",
   "/code.js",
   "/img/foggy-forest.jpeg",
-  "/img/LOGO.PNG",
+  "/img/favicon.ico",
   "/img/thermal-vision.jpg",
   "/assets/Clicking.mp3",
   "/assets/Pred.cur",
@@ -14,7 +14,11 @@ const assets = [
   "/img/favicon-48x48.png",
   "/img/apple-touch-icon.png",
   "/img/favicon-144x144.png",
-  "/img/favicon-192x192.png"
+  "/img/favicon-192x192.png",
+  "/img/android-launchericon-72-72.png",
+  "/img/android-launchericon-96-96.png",
+  "/img/favicon-32x32.png",
+  "/img/android-chrome-512x512.png"
 ]
 
 self.addEventListener("install", installEvent => {
