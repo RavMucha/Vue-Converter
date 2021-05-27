@@ -18,6 +18,7 @@ const assets = [
   "/img/android-launchericon-72-72.png",
   "/img/android-launchericon-96-96.png",
   "/img/favicon-32x32.png",
+  "/img/maskable_icon_384x384.png",
   "/img/android-chrome-512x512.png"
 ]
 
