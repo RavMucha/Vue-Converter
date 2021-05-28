@@ -365,6 +365,9 @@ input:checked + .slider:before {
   li {
     font-size: 0.6rem;
   }
+  #navi.thermalNav ul li  {
+    font-size: 0.66rem;
+  }
   footer {
     padding: 8px;
   }
