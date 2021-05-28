@@ -324,6 +324,7 @@ input:checked + .slider:before {
   }
   #header {
     font-size: 1.8rem;
+    margin-top: 45px;
     letter-spacing: 12px;
   }
   ul {
@@ -348,6 +349,7 @@ input:checked + .slider:before {
     font-family: sans-serif;
     font-size: 1.2rem;
     font-weight: 200;
+    margin-top: 55px;
     letter-spacing: 10px;
     color: var(--semantic-bg);
     text-decoration: none;
@@ -385,7 +387,7 @@ input:checked + .slider:before {
     width: 12px;
   }
   input:checked + .slider:before {
-    transform: translateX(12px);
+    transform: translateX(20px);
   }
 }
 
