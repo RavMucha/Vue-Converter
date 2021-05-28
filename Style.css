@@ -362,11 +362,14 @@ input:checked + .slider:before {
   ul {
     margin: 5px 40px;
   }
+  li {
+    font-size: 0.6rem;
+  }
   footer {
-    padding: 5px;
+    padding: 8px;
   }
   footer.thermalNav {
-    padding: 5px;
+    padding: 8px;
   }
   .switch {
     margin-right: 2%;
@@ -388,9 +391,6 @@ input:checked + .slider:before {
   }
   ul {
     margin: 6px 10px;
-  }
-  li {
-    font-size: 0.6rem;
   }
 }
 
