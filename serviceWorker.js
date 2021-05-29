@@ -2,8 +2,8 @@ const staticVue = "vue-avp"
 const assets = [
   "/",
   "/index.html",
-  "/Style.css",
-  "/code.js",
+  "/Style-min.css",
+  "/code-min.js",
   "/img/foggy-forest.jpeg",
   "/img/favicon.ico",
   "/img/thermal-vision.jpg",
