@@ -392,8 +392,7 @@ input:checked + .slider:before {
     padding: 8px;
     display: block;
   }
-  footer span,
-  footer a {
+  footer span {
     vertical-align: top;
   }
   footer.thermalNav {
@@ -420,8 +419,7 @@ input:checked + .slider:before {
   footer {
     display: block;
   }
-  footer span,
-  footer a {
+  footer span {
     vertical-align: top;
   }
   ul {
