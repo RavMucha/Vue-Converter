@@ -160,6 +160,7 @@ a:hover {
   text-shadow: 1px 0px 0 var(--blood);
   text-decoration: none !important;
   font-family: "Predator", Impact !important;
+  font-size: 0.85em;
 }
 
 .thermalConv label,
