@@ -283,11 +283,15 @@ footer {
   justify-content: center;
 }
 
+footer > * {
+  margin: 0 5px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
   margin-right: 0.5%;
-  width: 11px;
+  width: 15px;
   height: 7px;
 }
 
@@ -333,7 +337,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(5px);
+  transform: translateX(8px);
 }
 
 @media only screen and (max-width: 800px) {
