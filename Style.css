@@ -263,6 +263,9 @@ footer {
   right: 0;
   left: 0;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .switch {
@@ -368,7 +371,7 @@ input:checked + .slider:before {
   li {
     font-size: 0.6rem;
   }
-  #navi.thermalNav ul li  {
+  #navi.thermalNav ul li {
     font-size: 0.66rem;
   }
   footer {
