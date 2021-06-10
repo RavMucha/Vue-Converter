@@ -58,6 +58,9 @@ body {
   top: 0;
   right: 0;
   left: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   z-index: 9;
 }
@@ -115,8 +118,12 @@ a:hover {
   word-spacing: 2px;
   color: rgb(0, 129, 129);
   font-weight: 600;
+  -webkit-text-decoration: underline overline solid rgb(0, 129, 129);
   text-decoration: underline overline solid rgb(0, 129, 129);
   font-variant: small-caps;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   transition-property: color;
   transition-duration: 1000ms;
@@ -125,6 +132,7 @@ a:hover {
 
 #header:hover {
   color: var(--head-txt);
+  -webkit-text-decoration: underline overline solid var(--head-txt);
   text-decoration: underline overline solid var(--head-txt);
   transition-property: color;
   transition-duration: 1500ms;
@@ -199,6 +207,9 @@ a {
 }
 
 label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -262,6 +273,9 @@ footer {
   bottom: 0;
   right: 0;
   left: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   display: flex;
   align-items: center;
@@ -376,13 +390,18 @@ input:checked + .slider:before {
   }
   footer {
     padding: 8px;
+    display: block;
+  }
+  footer span,
+  footer a {
+    vertical-align: top;
   }
   footer.thermalNav {
     padding: 8px;
   }
   .switch {
     margin-right: 2%;
-    width: 30px;
+    width: 32px !important;
     height: 12px;
   }
   .slider:before {
@@ -398,6 +417,13 @@ input:checked + .slider:before {
   body {
     padding: 0;
   }
+  footer {
+    display: block;
+  }
+  footer span,
+  footer a {
+    vertical-align: top;
+  }
   ul {
     margin: 6px 10px;
   }
@@ -406,6 +432,23 @@ input:checked + .slider:before {
 @font-face {
   font-family: "Predator";
   src: url("./assets/invisibl.ttf") format("truetype");
+}
+
+@-webkit-keyframes glow {
+  0% {
+    box-shadow: inset 0 0 0 #fff;
+  }
+
+  50% {
+    box-shadow: inset 0 0 10px #fff, inset 0 0 30px var(--alien-color),
+      inset 0 0 40px var(--focus-txt), 0 0 10px #fff, 0 0 50px #fff,
+      0 0 100px var(--alien-color), 0 0 150px var(--focus-txt),
+      0 0 200px var(--focus-txt), 0 0 250px var(--alien-color);
+  }
+
+  100% {
+    box-shadow: inset 0 0 0 #fff;
+  }
 }
 
 @keyframes glow {
