@@ -20,6 +20,7 @@ let vm = new Vue({
       let head = document.getElementById("header");
       let foot = document.getElementById("credit");
       let nav = document.getElementById("navi");
+      let tip = document.getElementById("Tooltip");
       let audioT = new Audio("./assets/predator_vision.mp3");
       if (document.getElementById("Thermal").checked === true) {
         audioT.play();
@@ -32,6 +33,7 @@ let vm = new Vue({
           head.classList.toggle("thermal");
           nav.classList.toggle("thermalNav");
           app.classList.toggle("thermalConv");
+          tip.classList.toggle("thermalConv");
           foot.classList.toggle("thermalNav");
           foot.style.animation = "none";
           nav.style.animation = "none";
@@ -48,6 +50,7 @@ let vm = new Vue({
           head.classList.toggle("thermal");
           nav.classList.toggle("thermalNav");
           app.classList.toggle("thermalConv");
+          tip.classList.toggle("thermalConv");
           foot.classList.toggle("thermalNav");
           head.classList.remove("thermal");
           foot.style.animation = "none";
