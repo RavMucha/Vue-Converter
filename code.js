@@ -1,14 +1,25 @@
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function () {
     navigator.serviceWorker
       .register("../serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
+      .then((res) => console.log("service worker registered"))
+      .catch((err) => console.log("service worker not registered", err));
+  });
 }
 
 let vm = new Vue({
   el: "#app",
+  mounted() {
+    if (sessionStorage.getItem("thermal") === "true") {
+      document.getElementById("Thermal").checked = true;
+      document.body.style.backgroundImage = "url('./img/thermal-vision.jpg')";
+      document.getElementById("header").classList.toggle("thermal");
+      document.getElementById("navi").classList.toggle("thermalNav");
+      document.getElementById("app").classList.toggle("thermalConv");
+      document.getElementById("Tooltip").classList.toggle("thermalConv");
+      document.getElementById("credit").classList.toggle("thermalNav");
+    }
+  },
   methods: {
     click: function () {
       let audioC = new Audio("./assets/Clicking.mp3");
@@ -16,6 +27,7 @@ let vm = new Vue({
       audioC.volume = 0.2;
     },
     thermal: function () {
+      sessionStorage.setItem("thermal", "true");
       let app = document.getElementById("app");
       let head = document.getElementById("header");
       let foot = document.getElementById("credit");
@@ -39,6 +51,7 @@ let vm = new Vue({
           nav.style.animation = "none";
         }, 500);
       } else {
+        sessionStorage.clear();
         audioT.play();
         audioT.volume = 0.5;
         audioT.playbackRate = 2;
