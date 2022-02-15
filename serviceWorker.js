@@ -1,6 +1,7 @@
-const staticVue = "vue-avp"
+const staticVue = "vue-avp";
 const assets = [
   "/",
+  "/vue.min.js",
   "/index.html",
   "/Style-min.css",
   "/code-min.js",
@@ -19,21 +20,21 @@ const assets = [
   "/img/android-launchericon-96-96.png",
   "/img/favicon-32x32.png",
   "/img/maskable_icon_384x384.png",
-  "/img/android-chrome-512x512.png"
-]
+  "/img/android-chrome-512x512.png",
+];
 
-self.addEventListener("install", installEvent => {
+self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(
-    caches.open(staticVue).then(cache => {
-      cache.addAll(assets)
+    caches.open(staticVue).then((cache) => {
+      cache.addAll(assets);
     })
-  )
-})
+  );
+});
 
-self.addEventListener("fetch", fetchEvent => {
-    fetchEvent.respondWith(
-      caches.match(fetchEvent.request).then(res => {
-        return res || fetch(fetchEvent.request)
-      })
-    )
-  })
+self.addEventListener("fetch", (fetchEvent) => {
+  fetchEvent.respondWith(
+    caches.match(fetchEvent.request).then((res) => {
+      return res || fetch(fetchEvent.request);
+    })
+  );
+});
